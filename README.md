@@ -191,3 +191,132 @@ function generateSLTP() {
 
 </body>
 </html>
+const upload = document.getElementById("imageUpload");
+const preview = document.getElementById("preview");
+
+upload.addEventListener("change", function () {
+  const file = this.files[0];
+  if (file) {
+    preview.src = URL.createObjectURL(file);
+
+    // Fake AI analysis for now
+    document.getElementById("trend").textContent = "Uptrend";
+    document.getElementById("stopLoss").textContent = "1.2050";
+    document.getElementById("takeProfit").textContent = "1.2150";
+    document.getElementById("signal").textContent = "BUY";
+  }
+});
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0e1117;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #161b22;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.hero {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.upload-panel {
+  text-align: center;
+  padding: 30px;
+}
+
+.upload-panel input {
+  margin-top: 10px;
+}
+
+#preview {
+  margin-top: 20px;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.analysis-panel {
+  padding: 30px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #161b22;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Trading Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <h1>AI Trading Analyzer</h1>
+    <ul>
+      <li>Dashboard</li>
+      <li>Analyze</li>
+      <li>Signals</li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Upload Your Chart. Get Smart Trade Signals.</h2>
+    <p>AI analyzes stop loss, take profit, and trend direction instantly.</p>
+  </section>
+
+  <!-- UPLOAD PANEL -->
+  <section class="upload-panel">
+    <h3>Upload Chart Screenshot</h3>
+    <input type="file" id="imageUpload" accept="image/*">
+    <img id="preview" />
+  </section>
+
+  <!-- ANALYSIS PANEL -->
+  <section class="analysis-panel">
+    <h3>AI Trade Analysis</h3>
+    <div class="cards">
+      <div class="card">
+        <h4>Trend</h4>
+        <p id="trend">Waiting...</p>
+      </div>
+      <div class="card">
+        <h4>Stop Loss</h4>
+        <p id="stopLoss">Waiting...</p>
+      </div>
+      <div class="card">
+        <h4>Take Profit</h4>
+        <p id="takeProfit">Waiting...</p>
+      </div>
+      <div class="card">
+        <h4>Signal</h4>
+        <p id="signal">Waiting...</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
